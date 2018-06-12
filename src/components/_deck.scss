@@ -10,6 +10,10 @@
     display: flex;
     flex-wrap: wrap;
     justify-content: space-between;
+    .card {
+        width: 21px;
+        height: 31px;
+    }
 }
 
 .deckOpponent .player {
@@ -18,6 +22,6 @@
 
 .deckOpponent div:nth-child(2) {
     .playingAreaSection:first-child {
-        text-align: right;
+        justify-content: flex-end;
     }
 }
