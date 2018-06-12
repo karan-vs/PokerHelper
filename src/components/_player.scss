@@ -8,6 +8,14 @@
     flex-direction: column;
     margin-top: 130px;
     align-items: center;
+    .cardSlot {
+        width: 35px;
+        height: 45px;
+    }
+    .card {
+        width: 31px;
+        height: 41px;
+    }
 }
 
 .player-area-mug {

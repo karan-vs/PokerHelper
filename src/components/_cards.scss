@@ -1,13 +1,11 @@
 .cards {
     overflow: hidden;
-    overflow-y: auto;
     width: 50%; 
     height: 100%;
 }
 
 .allCards {
-    display: flex;
-    padding: 4px;
+    float: left;
 }
 
 .cards-suit {
