@@ -1,0 +1,16 @@
+.player {
+    width: 100%;
+}
+
+.self {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    margin-top: 130px;
+    align-items: center;
+}
+
+.player-area-mug {
+    display: flex;
+    position: relative;
+}

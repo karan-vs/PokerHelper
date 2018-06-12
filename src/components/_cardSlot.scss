@@ -1,0 +1,24 @@
+.cardSlot {
+    width: 54px;
+    height: 74px;
+    background-color: darkgreen;
+    border-radius: 10px;
+    margin-right: 10px;
+    margin-bottom: 10px;
+    display: inline-block;
+    cursor: pointer;
+    border: 2px solid transparent;
+    &:hover {
+        border-color: #0098DB;
+    }
+    &:active {
+        border-color: #0098DB;
+    }
+    .card:hover {
+        border-color: transparent;
+    }
+}
+
+.cardSlot-active {
+    border-color: #0098DB;
+}   

@@ -1,0 +1,22 @@
+.deck {
+    background-color: green;
+    width: 50%;
+    padding: 10px;
+    overflow: auto;
+}
+
+.deckOpponent {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+}
+
+.deckOpponent .player {
+    width: 45%;
+}
+
+.deckOpponent div:nth-child(2) {
+    .playingAreaSection:first-child {
+        text-align: right;
+    }
+}

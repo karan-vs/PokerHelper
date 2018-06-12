@@ -1,0 +1,16 @@
+.cards {
+    overflow: hidden;
+    overflow-y: auto;
+    width: 50%; 
+    height: 100%;
+}
+
+.allCards {
+    display: flex;
+    padding: 4px;
+}
+
+.cards-suit {
+    margin-left: 4px;
+    font-size: 25px;
+}
