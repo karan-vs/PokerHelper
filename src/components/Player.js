@@ -25,7 +25,7 @@ class Player extends React.Component {
             <div className={playerCls}>
                 {/* <PlayerDetails playerName={playerName} status={status} /> */}
                 <div className="player-area-mug">
-                    <Mug deck="C" />
+                    <Mug deck="C" activeDeck={activeDeck} activeIndex={activeIndex} handleCardSlotClick={handleCardSlotClick} selectedCards={selectedCards} />
                     <PlayingArea activeDeck={activeDeck} activeIndex={activeIndex} selectedCards={selectedCards} deck="C" handleCardSlotClick={handleCardSlotClick} />
                 </div>
             </div>

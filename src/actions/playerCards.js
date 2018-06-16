@@ -46,7 +46,14 @@ const updateCardSlotWithCard = (suit, rank) => {
 
         selectedCard = selectedCard.set('cardRank', rank).set('cardSuit', suit);
 
-        const payload = {
+        const isMug = (activeIndex < 0);
+
+        const payload = isMug ? {
+            index: activeIndex - 1,
+            deck: activeDeck,
+            cardSuit: null,
+            cardRank: null
+        } : {
             index: activeIndex + 1,
             deck: activeDeck,
             cardSuit: null,
@@ -61,11 +68,23 @@ const updateCardSlotWithCard = (suit, rank) => {
             cardIndex: cardsConst.cards.get(rank)
         })
 
-        dispatch({
-            type: actions.UPDATE_CARD_SLOT_WITH_CARD,
-            payload: selectedCards,
-            activeIndex: activeIndex + 1
-        })
+       
+
+        if (isMug) {
+            dispatch({
+                type: actions.UPDATE_CARD_SLOT_WITH_CARD,
+                payload: selectedCards,
+                activeIndex: activeIndex - 1
+            })
+        } else {
+            dispatch({
+                type: actions.UPDATE_CARD_SLOT_WITH_CARD,
+                payload: selectedCards,
+                activeIndex: activeIndex + 1
+            })
+        }
+
+        
     }
 }
 
