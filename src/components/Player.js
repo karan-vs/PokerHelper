@@ -2,6 +2,7 @@ import React from 'react';
 import classNames from 'classnames';
 import PlayingArea from './PlayingArea';
 import Mug from './Mug';
+import CardsProbabilty from './CardsProbabilty';
 
 import './_player.scss';
 
@@ -28,6 +29,7 @@ class Player extends React.Component {
                     <Mug deck="C" activeDeck={activeDeck} activeIndex={activeIndex} handleCardSlotClick={handleCardSlotClick} selectedCards={selectedCards} />
                     <PlayingArea activeDeck={activeDeck} activeIndex={activeIndex} selectedCards={selectedCards} deck="C" handleCardSlotClick={handleCardSlotClick} />
                 </div>
+                <CardsProbabilty />
             </div>
         )
     }
