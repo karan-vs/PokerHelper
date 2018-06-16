@@ -1,5 +1,6 @@
 import React from 'react';
 import times from 'lodash/times';
+import { getCardsProbability } from '../utils/utils';
 
 import './_cardsProbability.scss';
 
@@ -12,7 +13,9 @@ class CardsProbability extends React.Component {
         this.state = {
             street: 0,
             directOuts: 0,
-            indirectOuts: 0
+            indirectOuts: 0,
+            directOutsProb: '0%',
+            indirectOutsProb: '0%'
         }
 
         this.handleStreetChange = this.handleStreetChange.bind(this);
@@ -34,7 +37,12 @@ class CardsProbability extends React.Component {
     }
 
     handleSubmit () {
-
+        const { street, directOuts, indirectOuts } = this.state;
+        const result = getCardsProbability(street, directOuts, indirectOuts);
+        this.setState({
+            indirectOutsProb: result.indirectOutsProb,
+            directOutsProb: result.directOutsProb
+        });
     }
 
     render () {
@@ -74,11 +82,14 @@ class CardsProbability extends React.Component {
                             </td>
                         </tr>
                         <tr>
-                            <td colSpan="2" className="cardsProbability-tableAction">
+                            <td className="cardsProbability-tableAction">
                                 <button onClick={this.handleSubmit}>Submit</button>
                             </td>
-                            <td colSpan="2" className="cardsProbability-tableAction">
-                                <div style={{background: 'lightgray'}}>40%</div>
+                            <td className="cardsProbability-tableAction">
+                                <div style={{background: 'lightgray'}}>{this.state.directOutsProb}</div>
+                            </td>
+                            <td className="cardsProbability-tableAction">
+                                <div style={{background: 'lightgray'}}>{this.state.indirectOutsProb}</div>
                             </td>
                         </tr>
                     </tbody>
