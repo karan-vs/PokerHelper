@@ -1,5 +1,5 @@
 import Immutable from 'immutable';
-import { actions } from '../constants';
+import { actions, cards as cardsConst } from '../constants';
 
 const handleCardSlotClick = (activeDeck, activeIndex) => {
     return (dispatch, getState) => {
@@ -54,6 +54,12 @@ const updateCardSlotWithCard = (suit, rank) => {
         };
 
         selectedCards = selectedCards.set(selectedCardIndex, selectedCard).push(Immutable.fromJS(payload));
+
+        dispatch({
+            type: actions.CARD_USED,
+            index: cardsConst.suits.get(suit),
+            cardIndex: cardsConst.cards.get(rank)
+        })
 
         dispatch({
             type: actions.UPDATE_CARD_SLOT_WITH_CARD,

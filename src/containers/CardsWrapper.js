@@ -3,8 +3,7 @@ import Cards from '../components/Cards';
 import { playerCards } from '../actions';
 
 const mapStateToProps = (state) => ({
-    suits: state.getIn(['cards', 'deck', 'suits']),
-    cards: state.getIn(['cards', 'deck', 'cards'])
+    cardsInfo: state.get('cards')
 });
 
 const mapDispatchToProps = {

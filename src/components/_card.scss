@@ -12,3 +12,10 @@
         border-color: #0098DB;
     }
   }
+
+.card-isUsed {
+    opacity: 0.2;
+    &:hover {
+        border-color: transparent;
+    }
+}
