@@ -2,7 +2,7 @@ import Immutable from 'immutable';
 import { actions } from '../constants';
 
 const initialState = Immutable.fromJS({
-    numPlayer: null,
+    numPlayer: 3,
     shouldShowPlayerNumSelectionModal: true
 });
 
