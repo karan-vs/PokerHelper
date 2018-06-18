@@ -46,44 +46,52 @@ const updateCardSlotWithCard = (suit, rank) => {
 
         selectedCard = selectedCard.set('cardRank', rank).set('cardSuit', suit);
 
-        const isMug = (activeIndex < 0);
-
-        const payload = isMug ? {
-            index: activeIndex - 1,
-            deck: activeDeck,
-            cardSuit: null,
-            cardRank: null
-        } : {
-            index: activeIndex + 1,
-            deck: activeDeck,
-            cardSuit: null,
-            cardRank: null
-        };
-
-        selectedCards = selectedCards.set(selectedCardIndex, selectedCard).push(Immutable.fromJS(payload));
-
         dispatch({
             type: actions.CARD_USED,
             index: cardsConst.suits.get(suit),
             cardIndex: cardsConst.cards.get(rank)
         })
 
-       
+        //when max cards are reached for a particular deck || max mug reached
+        if (activeIndex === 12 || activeIndex === -4) {
+            selectedCards = selectedCards.set(selectedCardIndex, selectedCard);
+            dispatch({
+                type: actions.UPDATE_CARD_SLOT_WITH_CARD,
+                payload: selectedCards,
+                activeIndex: null
+            })
+            //when user is trying to add mug
+        } else if (activeIndex < 0) {
+            const payload = {
+                index: activeIndex - 1,
+                deck: activeDeck,
+                cardSuit: null,
+                cardRank: null
+            }
 
-        if (isMug) {
+            selectedCards = selectedCards.set(selectedCardIndex, selectedCard).push(Immutable.fromJS(payload));
+
             dispatch({
                 type: actions.UPDATE_CARD_SLOT_WITH_CARD,
                 payload: selectedCards,
                 activeIndex: activeIndex - 1
             })
         } else {
+            const payload = {
+                index: activeIndex + 1,
+                deck: activeDeck,
+                cardSuit: null,
+                cardRank: null
+            }
+            
+            selectedCards = selectedCards.set(selectedCardIndex, selectedCard).push(Immutable.fromJS(payload));
+
             dispatch({
                 type: actions.UPDATE_CARD_SLOT_WITH_CARD,
                 payload: selectedCards,
                 activeIndex: activeIndex + 1
             })
         }
-
         
     }
 }
