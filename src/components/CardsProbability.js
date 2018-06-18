@@ -5,6 +5,8 @@ import { getCardsProbability } from '../utils/utils';
 import './_cardsProbability.scss';
 
 let indirectOutsIndex = -1;
+const TWO_PLAYERS_STREET = 8;
+const THREE_PLAYERS_STREET = 12;
 
 class CardsProbability extends React.Component {
     constructor (props) {
@@ -46,6 +48,9 @@ class CardsProbability extends React.Component {
     }
 
     render () {
+
+        const streetValue = (this.props.numPlayer === 2) ? TWO_PLAYERS_STREET : THREE_PLAYERS_STREET;
+
         return (
             <div className="cardsProbability">
                 <table className="cardsProbability-table">
@@ -60,7 +65,7 @@ class CardsProbability extends React.Component {
                         <tr>
                             <td className="cardsProbability-tableCell">
                                 <select className="cardsProbability-dropdown" value={this.state.street} onChange={this.handleStreetChange}>
-                                    {times(12).map((index) => <option key={index + 1} value={index}>{index + 1}</option>)}
+                                    {times(streetValue).map((index) => <option key={index + 1} value={index}>{index + 1}</option>)}
                                 </select>
                             </td>
                             <td className="cardsProbability-tableCell">
