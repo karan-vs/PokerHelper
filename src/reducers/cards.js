@@ -79,7 +79,7 @@ const initialState = Immutable.fromJS([
 const cards = (state = initialState, action) => {
     switch (action.type) {
         case actions.CARD_USED : 
-            return state.updateIn([action.index, 'cards', action.cardIndex, 'isUsed'], () => true)
+            return state.updateIn([action.index, 'cards', action.cardIndex, 'isUsed'], () => action.value)
         default : 
             return state;
     }

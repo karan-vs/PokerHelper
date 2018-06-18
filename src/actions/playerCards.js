@@ -44,13 +44,26 @@ const updateCardSlotWithCard = (suit, rank) => {
 
         let selectedCard = selectedCards.get(selectedCardIndex);
 
-        selectedCard = selectedCard.set('cardRank', rank).set('cardSuit', suit);
+        const cardRank = selectedCard.get('cardRank');
+        const cardSuit = selectedCard.get('cardSuit');
+
+        if (cardRank && cardSuit) {
+            dispatch({
+                type: actions.CARD_USED,
+                index: cardsConst.suits.get(cardSuit),
+                cardIndex: cardsConst.cards.get(cardRank),
+                value: false
+            })
+        } 
 
         dispatch({
             type: actions.CARD_USED,
             index: cardsConst.suits.get(suit),
-            cardIndex: cardsConst.cards.get(rank)
+            cardIndex: cardsConst.cards.get(rank),
+            value: true
         })
+      
+        selectedCard = selectedCard.set('cardRank', rank).set('cardSuit', suit);
 
         //when max cards are reached for a particular deck || max mug reached
         if (activeIndex === 12 || activeIndex === -4) {
