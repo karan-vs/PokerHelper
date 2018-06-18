@@ -12,7 +12,7 @@ class Card extends React.Component {
     }
 
     handleClick () {
-        if (this.props.isUsed) return;
+        if (this.props.isUsed || !this.props.activeDeck || (this.props.activeIndex === null)) return;
         this.props.updateCardSlotWithCard(this.props.suit, this.props.rank);
     }
 

@@ -10,14 +10,14 @@ class Cards extends React.Component {
 
     render () {
 
-        const { cardsInfo } = this.props;
+        const { cardsInfo, activeDeck, activeIndex } = this.props;
         
         return (
             <div className="cards">
                 {cardsInfo.map((cardInfo) => {
                     return (
                         <div className="allCards" key={cardInfo.get('suit')}>
-                            {cardInfo.get('cards').map((card, index) => <Card key={index} isUsed={card.get('isUsed')} rank={card.get('name')} suit={cardInfo.get('suit')} updateCardSlotWithCard={this.props.updateCardSlotWithCard} />)}
+                            {cardInfo.get('cards').map((card, index) => <Card key={index} activeDeck={activeDeck} activeIndex={activeIndex} isUsed={card.get('isUsed')} rank={card.get('name')} suit={cardInfo.get('suit')} updateCardSlotWithCard={this.props.updateCardSlotWithCard} />)}
                         </div>
                     )
                 })}
