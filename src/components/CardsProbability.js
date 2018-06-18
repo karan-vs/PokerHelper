@@ -4,7 +4,6 @@ import { getCardsProbability } from '../utils/utils';
 
 import './_cardsProbability.scss';
 
-let indirectOutsIndex = -1;
 const TWO_PLAYERS_STREET = 8;
 const THREE_PLAYERS_STREET = 12;
 
@@ -50,6 +49,7 @@ class CardsProbability extends React.Component {
     render () {
 
         const streetValue = (this.props.numPlayer === 2) ? TWO_PLAYERS_STREET : THREE_PLAYERS_STREET;
+        let indirectOutsIndex = -1;
 
         return (
             <div className="cardsProbability">
