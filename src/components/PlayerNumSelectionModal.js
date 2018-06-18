@@ -20,7 +20,7 @@ class PlayerNumSelectionModal extends React.Component {
 
     handleChange (event) {
         this.setState({
-            numPlayer: event.target.value
+            numPlayer: parseInt(event.target.value)
         })
     }
 
