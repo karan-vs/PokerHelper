@@ -5,17 +5,17 @@ const handleCardSlotClick = (activeDeck, activeIndex) => {
     return (dispatch, getState) => {
 
         let selectedCards = getState().getIn(['playerCards', 'selectedCards']);
-
-        const payload = {
-            index: activeIndex,
-            deck: activeDeck,
-            cardSuit: null,
-            cardRank: null
-        };
-        
+                
         const selectedCardIndex = selectedCards.findIndex((sCard) => (sCard.get('index') === activeIndex && sCard.get('deck') === activeDeck)); 
 
         if (selectedCardIndex < 0) {
+            const payload = {
+                index: activeIndex,
+                deck: activeDeck,
+                cardSuit: null,
+                cardRank: null
+            };
+
             selectedCards = selectedCards.push(Immutable.fromJS(payload));
         }
 
