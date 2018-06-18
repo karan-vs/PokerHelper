@@ -11,7 +11,7 @@ class Deck extends React.Component {
 
     render () {
 
-        const { handleCardSlotClick, selectedCards, activeDeck, activeIndex } = this.props;
+        const { handleCardSlotClick, selectedCards, activeDeck, activeIndex, numPlayer } = this.props;
 
         return (
             <div className="deck">
@@ -19,7 +19,7 @@ class Deck extends React.Component {
                     <PlayingArea activeDeck={activeDeck} activeIndex={activeIndex} selectedCards={selectedCards} deck="A" handleCardSlotClick={handleCardSlotClick} />
                     <PlayingArea activeDeck={activeDeck} activeIndex={activeIndex} selectedCards={selectedCards} deck="B" handleCardSlotClick={handleCardSlotClick} />
                 </div>
-                <Player className="self" handleCardSlotClick={handleCardSlotClick} activeDeck={activeDeck} activeIndex={activeIndex} selectedCards={selectedCards} />
+                <Player className="self" numPlayer={numPlayer} handleCardSlotClick={handleCardSlotClick} activeDeck={activeDeck} activeIndex={activeIndex} selectedCards={selectedCards} />
             </div>
         )
     }

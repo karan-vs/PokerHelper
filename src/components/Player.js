@@ -18,7 +18,7 @@ const PlayerDetails = ({ playerName, status }) => {
 class Player extends React.Component {
     render () {
 
-        const { playerName, status, className, handleCardSlotClick, selectedCards, activeDeck, activeIndex } = this.props;
+        const { playerName, status, numPlayer, className, handleCardSlotClick, selectedCards, activeDeck, activeIndex } = this.props;
 
         const playerCls = classNames('player', className);
 
@@ -29,7 +29,7 @@ class Player extends React.Component {
                     <Mug deck="C" activeDeck={activeDeck} activeIndex={activeIndex} handleCardSlotClick={handleCardSlotClick} selectedCards={selectedCards} />
                     <PlayingArea activeDeck={activeDeck} activeIndex={activeIndex} selectedCards={selectedCards} deck="C" handleCardSlotClick={handleCardSlotClick} />
                 </div>
-                <CardsProbability />
+                <CardsProbability numPlayer={numPlayer} />
             </div>
         )
     }

@@ -2,14 +2,16 @@ import Immutable from 'immutable';
 import { actions } from '../constants';
 
 const initialState = Immutable.fromJS({
-    activeIndex: null,
-    activeDeck: null
+    numPlayer: null,
+    shouldShowPlayerNumSelectionModal: true
 });
 
 const ui = (state = initialState, action) => {
     switch (action.type) {
-        // case actions.UPDATE_INDEX : 
-        //     return state.update('activeIndex', () => action.activeIndex).update('activeDeck', () => action.activeDeck)
+        case actions.PLAYER_UPDATE: 
+            return state.update('numPlayer', () => action.value)
+        case actions.PLAYER_NUM_SELECTION_SHOW: 
+            return state.update('shouldShowPlayerNumSelectionModal', () => action.value)
         default : 
             return state;
     }

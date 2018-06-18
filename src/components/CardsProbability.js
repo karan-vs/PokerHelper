@@ -38,7 +38,7 @@ class CardsProbability extends React.Component {
 
     handleSubmit () {
         const { street, directOuts, indirectOuts } = this.state;
-        const result = getCardsProbability(street, directOuts, indirectOuts);
+        const result = getCardsProbability(street, directOuts, indirectOuts, this.props.numPlayer);
         this.setState({
             indirectOutsProb: result.indirectOutsProb,
             directOutsProb: result.directOutsProb

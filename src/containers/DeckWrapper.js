@@ -5,7 +5,8 @@ import { playerCards } from '../actions';
 const mapStateToProps = (state) => ({
     selectedCards: state.getIn(['playerCards', 'selectedCards']),
     activeDeck: state.getIn(['playerCards', 'activeDeck']),
-    activeIndex: state.getIn(['playerCards', 'activeIndex'])
+    activeIndex: state.getIn(['playerCards', 'activeIndex']),
+    numPlayer: state.getIn(['ui', 'numPlayer'])
 });
 
 const mapDispatchToProps = {
